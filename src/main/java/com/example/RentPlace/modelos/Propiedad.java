@@ -26,7 +26,8 @@ public class Propiedad {
     @Column(columnDefinition = "TEXT")
     private String detalles;
 
-    @Column(length = 255)
+    @Column(columnDefinition = "LONGTEXT")
+    @Lob
     private String foto;
 
     @OneToMany(mappedBy = "propiedad")
