@@ -1,6 +1,6 @@
 package com.example.RentPlace.modelos;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -15,12 +15,12 @@ public class Reserva {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    @JsonBackReference(value = "usuarioreservas")
+    @JsonIgnoreProperties({"reservas", "password", "email"}) // Ignora campos que puedan causar referencias circulares o información sensible
     private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "propiedad_id")
-    @JsonBackReference(value = "propiedadreservas")
+    @JsonIgnoreProperties({"reservas", "usuario"}) // Ignora la lista de reservas y posiblemente el usuario propietario
     private Propiedad propiedad;
 
     @Column(name = "fecha_inicio")
