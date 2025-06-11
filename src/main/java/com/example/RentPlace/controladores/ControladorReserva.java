@@ -2,6 +2,7 @@ package com.example.RentPlace.controladores;
 
 import com.example.RentPlace.modelos.Reserva;
 import com.example.RentPlace.servicios.ReservaServicio;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/reserva")
+
 public class ControladorReserva {
 
     @Autowired

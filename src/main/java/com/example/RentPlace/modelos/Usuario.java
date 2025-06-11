@@ -1,11 +1,13 @@
 package com.example.RentPlace.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "usuario")
+@JsonIgnoreProperties({"reservas"})
 public class Usuario {
 
     @Id
@@ -23,7 +25,6 @@ public class Usuario {
     private String password;
 
     @OneToMany(mappedBy = "usuario")
-    @JsonManagedReference(value = "usuarioreservas")
     private List<Reserva> reservas;
 
     public Usuario() {
